@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @book.status %>
+</p>
+
+<p>
+  <strong>Fecha de préstado:</strong>
+  <%= @book.lend_date %>
+</p>
+
+<p>
+  <strong>Fecha de devolución:</strong>
+  <%= @book.return_date %>
+</p>
+
+<%= link_to 'Ir al root', root_path %>

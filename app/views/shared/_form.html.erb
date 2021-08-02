@@ -1,0 +1,41 @@
+<%= form_with(model: book, local: true) do |f| %>
+    <% if book.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Este libro no se pudo crear por las siguientes razones</h2>
+            <ul>
+                <% book.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+<div class="form-group">
+    <%= f.label :title, "titlulo" %>
+    <%= f.text_field :title, placeholder: "el re nombre", class: 'form-control' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :author, "Autor" %>
+    <%= f.text_field :author, class: 'form-control' %>
+</div>
+  
+  <div class="form-group">
+    <%= f.label :status, "Estado" %>
+    <%= f.select :status, options_for_select(@statuses),{:include_blank => true}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :lend_date, "Fecha prestamos" %>
+    <%= f.datetime_select :lend_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :return_date, "Fecha prestamos" %>
+    <%= f.datetime_select :return_date, class: 'form-control' %>
+  </div>
+
+  <div class = 'actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
